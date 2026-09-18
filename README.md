@@ -19,3 +19,6 @@ Os dados são salvos em `localStorage`/`sessionStorage`, portanto funcionam some
 ## Contas demo
 Cliente: `julia@devitre.com` / `123456`
 Loja: `charlotts@devitre.com` / `123456`
+
+## Atualização do catálogo
+Esta versão revisa os nomes, categorias, tamanhos e descrições das peças para combinar melhor com as imagens exibidas. A atualização também migra automaticamente os produtos de demonstração já salvos no navegador, preservando estoque e dados personalizados.
