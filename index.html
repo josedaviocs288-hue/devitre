@@ -2,48 +2,75 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#8f4d62" />
-  <meta name="description" content="DeVitrê — vitrines digitais de lojas locais, reserva com 50% e retirada na loja." />
-  <title>DeVitrê</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#7f3f53" />
+  <meta name="description" content="DeVitrê — marketplace local de moda com vitrines digitais, reserva, chat e retirada na loja." />
+  <meta name="color-scheme" content="light dark" />
+  <title>DeVitrê — Moda local mais perto</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/logo-devitre.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
-  <div id="loginScreen" class="login-screen">
-    <div class="login-card">
-      <img class="login-logo" src="assets/logo-devitre.svg" alt="Logo DeVitrê" />
-      <h1>Bem-vindo à DeVitrê</h1>
-      <p>Escolha como deseja entrar na plataforma.</p>
-      <div class="login-tabs" role="tablist">
-        <button id="loginTabClient" class="login-tab active" type="button">Usuário</button>
-        <button id="loginTabSeller" class="login-tab" type="button">Vendedor</button>
+  <div id="loginScreen" class="login-shell">
+    <div class="login-visual">
+      <div class="login-brand">
+        <img src="assets/logo-devitre.svg" alt="DeVitrê" />
+        <div>
+          <span class="eyebrow">MODA LOCAL • ITAREMA</span>
+          <h1>Encontre. Reserve.<br><em>Vista o que é daqui.</em></h1>
+          <p>Uma vitrine digital para descobrir lojas locais, falar com vendedores, reservar peças e retirar com segurança.</p>
+        </div>
       </div>
-      <label>E-mail<input id="loginEmail" type="email" autocomplete="username" /></label>
-      <label>Senha<input id="loginPassword" type="password" autocomplete="current-password" /></label>
-      <button id="loginButton" class="button primary full" type="button">Entrar</button>
-      <div class="demo-credentials">
-        <strong>Contas para apresentação</strong>
-        <span>Usuário: <b>julia@devitre.com</b> · <b>123456</b></span>
-        <span>Vendedor: <b>charlotts@devitre.com</b> · <b>123456</b></span>
+      <div class="login-highlights">
+        <span>✦ Vitrines locais</span><span>♡ Favoritos</span><span>◌ Reserva 50%</span><span>↗ Chat direto</span>
       </div>
-      <small>Protótipo demonstrativo. O pagamento de 50% é simulado.</small>
+    </div>
+
+    <div class="login-panel">
+      <div class="login-card">
+        <span class="eyebrow">ENTRAR NA DEVITRÊ</span>
+        <h2>Escolha seu acesso</h2>
+        <p class="muted">Contas de demonstração já preenchidas.</p>
+        <div class="segmented" role="tablist">
+          <button id="loginTabClient" class="active" type="button">Cliente</button>
+          <button id="loginTabSeller" type="button">Loja</button>
+        </div>
+        <label>E-mail<input id="loginEmail" class="field" type="email" autocomplete="username" /></label>
+        <label>Senha<input id="loginPassword" class="field" type="password" autocomplete="current-password" /></label>
+        <button id="loginButton" class="button primary full" type="button">Entrar na plataforma</button>
+        <div class="demo-box">
+          <b>Para apresentar</b>
+          <span>Cliente: julia@devitre.com / 123456</span>
+          <span>Loja: charlotts@devitre.com / 123456</span>
+        </div>
+        <small>Protótipo front-end. Pagamentos, mensagens entre dispositivos e autenticação são simulados.</small>
+      </div>
     </div>
   </div>
 
   <div id="app" class="app hidden">
     <header class="topbar">
       <div class="topbar-inner">
-        <button class="wordmark" data-nav="home" aria-label="Ir para início">DeVitrê</button>
+        <button class="brand-button" data-nav="home" aria-label="Ir ao início">
+          <img src="assets/logo-devitre.svg" alt="" />
+          <span>DeVitrê</span>
+        </button>
+
         <div class="search-wrap">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-          <input id="globalSearch" placeholder="Buscar roupa, loja ou categoria..." />
+          <input id="globalSearch" autocomplete="off" placeholder="Buscar vestido, loja, cor, categoria..." />
+          <kbd>⌘ K</kbd>
         </div>
+
         <div class="top-actions">
-          <span id="accountBadge" class="account-badge"></span>
-          <button id="themeToggle" class="icon-button" aria-label="Alternar tema"></button>
-          <button class="icon-button" data-nav="profile" aria-label="Perfil">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          <button id="bagButton" class="action-pill" title="Sacola de reserva"><span>◎</span><b>Sacola</b><i id="bagCount">0</i></button>
+          <button id="notificationButton" class="icon-button badge-holder" aria-label="Notificações">
+            <svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg>
+            <i id="notificationCount" class="tiny-badge hidden">0</i>
           </button>
+          <button id="themeToggle" class="icon-button" aria-label="Alternar tema"></button>
+          <button class="avatar-button" data-nav="profile" aria-label="Perfil"><span id="topAvatar">JM</span></button>
         </div>
       </div>
     </header>
@@ -57,15 +84,16 @@
       <section id="page-store" class="page"></section>
       <section id="page-product" class="page"></section>
       <section id="page-reservations" class="page"></section>
+      <section id="page-messages" class="page"></section>
       <section id="page-profile" class="page"></section>
       <section id="page-seller" class="page"></section>
     </main>
 
     <nav class="bottom-nav" aria-label="Navegação principal">
       <button data-nav="home" class="active"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><span>Início</span></button>
-      <button data-nav="stores"><svg viewBox="0 0 24 24"><path d="M3 10h18"/><path d="M5 10v10h14V10"/><path d="M4 4h16l1 6H3l1-6Z"/><path d="M9 20v-6h6v6"/></svg><span>Empresas</span></button>
+      <button data-nav="stores"><svg viewBox="0 0 24 24"><path d="M3 10h18"/><path d="M5 10v10h14V10"/><path d="M4 4h16l1 6H3l1-6Z"/></svg><span>Lojas</span></button>
       <button data-nav="products"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Explorar</span></button>
-      <button data-nav="reservations"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg><span>Reservas</span></button>
+      <button data-nav="messages"><svg viewBox="0 0 24 24"><path d="M4 5h16v12H8l-4 4V5Z"/></svg><span>Mensagens</span><i id="navUnread" class="nav-badge hidden">0</i></button>
       <button data-nav="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>Perfil</span></button>
     </nav>
   </div>
@@ -74,5 +102,8 @@
   <div id="toast" class="toast" role="status"></div>
 
   <script src="assets/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  </script>
 </body>
 </html>

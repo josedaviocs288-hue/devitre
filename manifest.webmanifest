@@ -1,0 +1,12 @@
+{
+  "name": "DeVitrê — Moda local",
+  "short_name": "DeVitrê",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f4f2",
+  "theme_color": "#7f3f53",
+  "description": "Vitrine digital de lojas locais com reservas e retirada presencial.",
+  "icons": [
+    {"src":"assets/logo-devitre.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
