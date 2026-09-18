@@ -31,20 +31,20 @@
       <div class="login-card">
         <span class="eyebrow">ENTRAR NA DEVITRÊ</span>
         <h2>Escolha seu acesso</h2>
-        <p class="muted">Contas de demonstração já preenchidas.</p>
+        <p class="muted">Entre com uma conta existente ou crie uma nova para demonstrar o fluxo completo.</p><div class="auth-switch"><button id="authLoginMode" class="active" type="button">Entrar</button><button id="authRegisterMode" type="button">Criar conta</button></div>
         <div class="segmented" role="tablist">
           <button id="loginTabClient" class="active" type="button">Cliente</button>
           <button id="loginTabSeller" type="button">Loja</button>
         </div>
-        <label>E-mail<input id="loginEmail" class="field" type="email" autocomplete="username" /></label>
-        <label>Senha<input id="loginPassword" class="field" type="password" autocomplete="current-password" /></label>
-        <button id="loginButton" class="button primary full" type="button">Entrar na plataforma</button>
+        <div id="registerFields" class="hidden"><label>Nome completo<input id="registerName" class="field" autocomplete="name" placeholder="Seu nome" /></label><label id="storeNameLabel" class="hidden">Nome da loja<input id="registerStoreName" class="field" placeholder="Ex.: Boutique Aurora" /></label><label>Telefone<input id="registerPhone" class="field" placeholder="(88) 99999-9999" /></label><label>Cidade<input id="registerCity" class="field" value="Itarema - CE" /></label></div><label>E-mail<input id="loginEmail" class="field" type="email" autocomplete="username" /></label>
+        <label>Senha<input id="loginPassword" class="field" type="password" autocomplete="current-password" /></label><label id="confirmPasswordLabel" class="hidden">Confirmar senha<input id="registerPassword2" class="field" type="password" /></label><label class="remember-row"><input id="rememberSession" type="checkbox" checked> Manter sessão neste navegador</label>
+        <button id="loginButton" class="button primary full" type="button">Entrar na plataforma</button><button id="forgotPassword" class="link-button" type="button">Esqueci minha senha</button>
         <div class="demo-box">
           <b>Para apresentar</b>
           <span>Cliente: julia@devitre.com / 123456</span>
           <span>Loja: charlotts@devitre.com / 123456</span>
         </div>
-        <small>Protótipo front-end. Pagamentos, mensagens entre dispositivos e autenticação são simulados.</small>
+        <small>Versão demonstrativa 100% front-end: cadastro e login ficam salvos apenas neste navegador. Não use senhas reais.</small>
       </div>
     </div>
   </div>
