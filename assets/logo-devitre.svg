@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420">
+  <rect width="420" height="420" rx="72" fill="#f4e9ec"/>
+  <path d="M100 120h72c74 0 122 37 122 91 0 55-48 91-122 91h-72V120Zm63 47v88h15c34 0 54-16 54-44 0-27-20-44-54-44h-15Z" fill="#8f4d62"/>
+  <path d="M230 120h64l-61 182h-56l-60-182h65l24 93 24-93Z" fill="#b96d82" opacity=".92"/>
+  <text x="210" y="350" text-anchor="middle" font-family="Georgia,serif" font-size="44" font-weight="700" fill="#24201f">DeVitrê</text>
+</svg>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#8f4d62" />
+  <meta name="description" content="DeVitrê — vitrines digitais de lojas locais, reserva com 50% e retirada na loja." />
+  <title>DeVitrê</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <img class="login-logo" src="assets/logo-devitre.svg" alt="Logo DeVitrê" />
+      <h1>Bem-vindo à DeVitrê</h1>
+      <p>Escolha como deseja entrar na plataforma.</p>
+      <div class="login-tabs" role="tablist">
+        <button id="loginTabClient" class="login-tab active" type="button">Usuário</button>
+        <button id="loginTabSeller" class="login-tab" type="button">Vendedor</button>
+      </div>
+      <label>E-mail<input id="loginEmail" type="email" autocomplete="username" /></label>
+      <label>Senha<input id="loginPassword" type="password" autocomplete="current-password" /></label>
+      <button id="loginButton" class="button primary full" type="button">Entrar</button>
+      <div class="demo-credentials">
+        <strong>Contas para apresentação</strong>
+        <span>Usuário: <b>julia@devitre.com</b> · <b>123456</b></span>
+        <span>Vendedor: <b>charlotts@devitre.com</b> · <b>123456</b></span>
+      </div>
+      <small>Protótipo demonstrativo. O pagamento de 50% é simulado.</small>
+    </div>
+  </div>
+
+  <div id="app" class="app hidden">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <button class="wordmark" data-nav="home" aria-label="Ir para início">DeVitrê</button>
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="globalSearch" placeholder="Buscar roupa, loja ou categoria..." />
+        </div>
+        <div class="top-actions">
+          <span id="accountBadge" class="account-badge"></span>
+          <button id="themeToggle" class="icon-button" aria-label="Alternar tema"></button>
+          <button class="icon-button" data-nav="profile" aria-label="Perfil">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div id="modeBar" class="mode-bar"></div>
+
+    <main id="main">
+      <section id="page-home" class="page active"></section>
+      <section id="page-stores" class="page"></section>
+      <section id="page-products" class="page"></section>
+      <section id="page-store" class="page"></section>
+      <section id="page-product" class="page"></section>
+      <section id="page-reservations" class="page"></section>
+      <section id="page-profile" class="page"></section>
+      <section id="page-seller" class="page"></section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <button data-nav="home" class="active"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><span>Início</span></button>
+      <button data-nav="stores"><svg viewBox="0 0 24 24"><path d="M3 10h18"/><path d="M5 10v10h14V10"/><path d="M4 4h16l1 6H3l1-6Z"/><path d="M9 20v-6h6v6"/></svg><span>Empresas</span></button>
+      <button data-nav="products"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span>Explorar</span></button>
+      <button data-nav="reservations"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg><span>Reservas</span></button>
+      <button data-nav="profile"><svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>Perfil</span></button>
+    </nav>
+  </div>
+
+  <div id="modal" class="modal" aria-hidden="true"><div id="modalPanel" class="modal-panel"></div></div>
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
